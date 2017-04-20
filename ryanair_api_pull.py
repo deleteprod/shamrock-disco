@@ -25,7 +25,8 @@ date_limit = date_to.strftime('%Y-%m-%d')
 
 # Other variables for the API call
 airport_code = args['origin']
-price_limit = args['maxprice'] # Price limit for single fare
+price_limit = args['maxprice'] if args['maxprice'] else '' # Price limit for single fare
+
 
 # Define the url for the JSON API
 url = "https://api.ryanair.com/farefinder/3/oneWayFares?&departureAirportIataCode=%s&language=en&limit=30&market=en-gb&offset=0&outboundDepartureDateFrom=%s&outboundDepartureDateTo=%s&priceValueTo=%s" % (airport_code, today_formatted, date_limit, price_limit)
