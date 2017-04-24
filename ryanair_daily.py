@@ -27,8 +27,8 @@ flex_days = args['flexdays'] if (args['flexdays'] and int(args['flexdays']) < 7)
 # Define the url for the JSON API
 url = "https://desktopapps.ryanair.com/en-gb/availability?ADT=1&CHD=0&DateOut=%s&Origin=%s&Destination=%s&FlexDaysOut=%s&INF=0&RoundTrip=false&TEEN=0" % (flight_date, airport_code_origin, airport_code_destination, flex_days)
 
-print url
-print "\r\n\r\n"
+# print url
+print "\r\n"
 # Define how we will format the results coming back
 def printResults(data):
     lowest_price = 0.00
@@ -57,7 +57,7 @@ def printResults(data):
             if (lowest_price == 0.00 or current_price < lowest_price):
                 lowest_price = current_price
                 lowest_date = dep_date
-            print formatted_dep_date + " for " + str(current_price) + " (" + fares_left + " left)"
+            print formatted_dep_date + " for " + str(current_price)
 
     if (lowest_price == 0):
         print "All prices are equal!"
